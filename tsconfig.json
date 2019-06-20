@@ -1,8 +1,17 @@
 {
   "compilerOptions": {
-    "noEmit": true,
-    "lib": ["dom", "es6"],
+    "target": "esnext",
+    "module": "esnext",
     "strict": true,
-    "forceConsistentCasingInFileNames": true
-  }
+    "noEmit": true,
+    "esModuleInterop": true,
+    "sourceMap": true,
+    "allowJs": true,
+    "moduleResolution": "node",
+    "rootDir": "./lib",
+    "outDir": "dist"
+  },
+  "include": [
+    "lib"
+  ]
 }
