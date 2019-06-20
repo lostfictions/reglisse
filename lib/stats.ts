@@ -1,5 +1,4 @@
-
-module.exports = function stats () {
+export default function stats() {
   return {
     bufferCount: 0,
     elementsCount: 0,
@@ -9,5 +8,5 @@ module.exports = function stats () {
     cubeCount: 0,
     renderbufferCount: 0,
     maxTextureUnits: 0
-  }
+  };
 }
