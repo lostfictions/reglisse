@@ -1,11 +1,15 @@
 import check from "./util/check";
 import { ReglInit } from "./webgl";
 
+export interface ExtensionCache {
+  [extname: string]: unknown;
+}
+
 export default function createExtensionCache(
   gl: WebGLRenderingContext,
   config: ReglInit
 ) {
-  const extensions: { [extname: string]: unknown } = {};
+  const extensions: ExtensionCache = {};
 
   function tryLoadExtension(name_: string): boolean {
     check.type(name_, "string", "extension name must be string");

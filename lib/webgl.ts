@@ -101,15 +101,15 @@ function ensureElement(desc: string | HTMLElement): HTMLElement | null {
   return desc;
 }
 
-type ReglConfig = (
+export type ReglConfig = (
   | {
-      gl: WebGLRenderingContext;
+      gl?: WebGLRenderingContext;
     }
   | {
-      canvas: string | HTMLCanvasElement;
+      canvas?: string | HTMLCanvasElement;
     }
   | {
-      container: string | HTMLElement;
+      container?: string | HTMLElement;
     }) & {
   attributes?: {};
   extensions?: string | string[];
@@ -128,7 +128,8 @@ export interface ReglInit {
   optionalExtensions: string[];
   pixelRatio: number;
   profile: boolean;
-  onDone: (err: any) => void;
+  // TODO
+  onDone: (err: any, regl?: any) => void;
   onDestroy: () => void;
 }
 

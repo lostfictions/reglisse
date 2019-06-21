@@ -35,7 +35,7 @@
     ],
     "prefer-const": "warn",
     "no-console": "off",
-    "no-dupe-class-members": "error",
+    "no-dupe-class-members": "off",
     "no-empty": "warn",
     "no-shadow": "warn",
     "no-undef": "error",
