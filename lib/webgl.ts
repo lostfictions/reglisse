@@ -120,7 +120,7 @@ type ReglConfig = (
   onDestroy?: () => void;
 };
 
-interface ReglInit {
+export interface ReglInit {
   gl: WebGLRenderingContext;
   canvas: HTMLCanvasElement | null;
   container: HTMLElement | null;
