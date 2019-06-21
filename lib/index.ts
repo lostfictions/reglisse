@@ -18,6 +18,7 @@ import createCore from "./core";
 import createStats from "./stats";
 import createTimer from "./timer";
 
+// TODO: to constants
 const GL_COLOR_BUFFER_BIT = 16384;
 const GL_DEPTH_BUFFER_BIT = 256;
 const GL_STENCIL_BUFFER_BIT = 1024;
@@ -77,7 +78,7 @@ export default function wrapREGL(
   const stringStore = createStringStore();
   const stats = createStats();
   const extensions = extensionState.extensions;
-  const timer = createTimer(gl, extensions);
+  const timer = createTimer(extensions);
 
   const START_TIME = clock();
   const WIDTH = gl.drawingBufferWidth;
@@ -164,7 +165,7 @@ export default function wrapREGL(
   const nextState = core.next;
   const canvas = gl.canvas;
 
-  // TODO
+  // TODO: signature
   const rafCallbacks: ((c: ContextState, _: null, __: number) => void)[] = [];
   const lossCallbacks: (() => void)[] = [];
   const restoreCallbacks: (() => void)[] = [];

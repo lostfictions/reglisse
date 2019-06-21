@@ -1,3 +1,4 @@
+// TODO: move
 export const GL_BYTE = 5120;
 export const GL_UNSIGNED_BYTE = 5121;
 export const GL_SHORT = 5122;
