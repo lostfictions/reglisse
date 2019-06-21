@@ -1,25 +1,16 @@
 import { TypedArray } from "./is-typed-array";
 import loop from "./loop";
-
-export const GL_BYTE = 5120;
-export const GL_UNSIGNED_BYTE = 5121;
-export const GL_SHORT = 5122;
-export const GL_UNSIGNED_SHORT = 5123;
-export const GL_INT = 5124;
-export const GL_UNSIGNED_INT = 5125;
-export const GL_FLOAT = 5126;
-
-export interface GLTypesToTypedArray {
-  [GL_BYTE]: Int8Array;
-  [GL_UNSIGNED_BYTE]: Uint8Array;
-  [GL_SHORT]: Int16Array;
-  [GL_UNSIGNED_SHORT]: Uint16Array;
-  [GL_INT]: Int32Array;
-  [GL_UNSIGNED_INT]: Uint32Array;
-  [GL_FLOAT]: Float32Array;
-}
-
-export type GLTypes = keyof GLTypesToTypedArray;
+import {
+  GLType,
+  GLTypesToTypedArray,
+  GL_BYTE,
+  GL_UNSIGNED_BYTE,
+  GL_SHORT,
+  GL_UNSIGNED_SHORT,
+  GL_INT,
+  GL_UNSIGNED_INT,
+  GL_FLOAT
+} from "./gl-types";
 
 function nextPow16(v: number): number {
   for (let i = 16; i <= 1 << 28; i *= 16) {
@@ -63,7 +54,7 @@ function createPool() {
     bufferPool[log2(buf.byteLength) >> 2].push(buf);
   }
 
-  function allocType<K extends GLTypes>(
+  function allocType<K extends GLType>(
     type: K,
     n: number
   ): GLTypesToTypedArray[K] {

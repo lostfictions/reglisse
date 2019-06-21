@@ -1,5 +1,6 @@
 import { TypedArray } from "./is-typed-array";
-import pool, { GLTypes, GLTypesToTypedArray } from "./pool";
+import pool from "./pool";
+import { GLType, GLTypesToTypedArray } from "./gl-types";
 
 function flatten1D<T extends TypedArray>(array: T, nx: number, out: T) {
   for (let i = 0; i < nx; ++i) {
@@ -74,7 +75,7 @@ export function flatten<T extends TypedArray>(
   array: T | T[] | T[][] | T[][][],
   shape_: number[]
 ): T;
-export function flatten<K extends GLTypes>(
+export function flatten<K extends GLType>(
   array:
     | GLTypesToTypedArray[K]
     | GLTypesToTypedArray[K][]
@@ -84,7 +85,7 @@ export function flatten<K extends GLTypes>(
   type: K,
   out_: GLTypesToTypedArray[K]
 ): GLTypesToTypedArray[K];
-export function flatten<K extends GLTypes>(
+export function flatten<K extends GLType>(
   array:
     | GLTypesToTypedArray[K]
     | GLTypesToTypedArray[K][]
